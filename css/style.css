@@ -446,7 +446,8 @@ textarea {
 	min-height: 2em;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;  
+    box-sizing: border-box;
+	max-width:400px;  
 }
 
 button,
@@ -481,6 +482,10 @@ input[type="submit"] {
 	-ms-transition: 0.1s linear all;
 	-o-transition: 0.1s linear all;
   	transition: 0.1s linear all;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+	max-width:400px;
   }
 
 button:hover,
@@ -557,6 +562,8 @@ box-shadow : none; }
 a#mobileMenu.button {
 	width:100%;
 	padding: .75em 0;
+	display: block;
+	margin: 1em auto;
 }
 #menu {
 	margin:0 0 1em;
