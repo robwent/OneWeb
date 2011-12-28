@@ -585,6 +585,15 @@ input[type="search"], .search label {
 #breadcrumbs {
 	color:#999;
 }
+/* article navigation */
+ul.pagenav,
+ul.pagenav li {margin:0;padding:0;}
+ul.pagenav li {
+	list-style-type:none;
+	display:inline-block;
+}
+li.pagenav-prev {float:left;}
+li.pagenav-next {float:right;}
 /* 11 BANNER 				============================================================================= */
 /* 12 CONTENT 				============================================================================= */
 /* 13 MAIN 					============================================================================= */
