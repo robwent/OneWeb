@@ -30,7 +30,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 <div id="logoRow">
     <div class="container">
          <div class="row clearfix">
-         	<a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">
+         	<a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>">
             	<header id="logo" class="<?php echo htmlspecialchars($logoCols); ?>col">	
                     <div id="logotext"><?php echo $app->getCfg('sitename');?></div>     
              	</header>
