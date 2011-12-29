@@ -25,24 +25,24 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $bodyFontFamily ?> clearfix">
+<body class="<?php echo htmlspecialchars($bodyFontFamily); ?> clearfix">
 
 <div id="logoRow">
     <div class="container">
          <div class="row clearfix">
          	<a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">
-            	<header id="logo" class="<?php echo $logoCols; ?>col">	
+            	<header id="logo" class="<?php echo htmlspecialchars($logoCols); ?>col">	
                     <div id="logotext"><?php echo $app->getCfg('sitename');?></div>     
              	</header>
              </a> 
               <?php if($this->countModules('tagline')) : ?>
-                    <div id="tagline" class="<?php echo $taglineCols; ?>col">
+                    <div id="tagline" class="<?php echo htmlspecialchars($taglineCols); ?>col">
                         <jdoc:include type="modules" name="tagline" style="XHTML" />
                     </div>
               <?php endif; ?>	
                 
               <?php if($this->countModules('search')) : ?>
-                  <div role="search" id="search" class="<?php echo $searchCols; ?>col last">
+                  <div role="search" id="search" class="<?php echo htmlspecialchars($searchCols); ?>col last">
                       <jdoc:include type="modules" name="search" style="XHTML" />
                   </div>
               <?php endif; ?> 
@@ -88,13 +88,13 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
          <div class="row clearfix">
               
               <?php if($this->countModules('banner1')) : ?>
-                <div role="banner" id="banner1" class="<?php echo $banner1Cols; ?>col">
+                <div role="banner" id="banner1" class="<?php echo htmlspecialchars($banner1Cols); ?>col">
                     <jdoc:include type="modules" name="banner1" style="XHTML" />
                 </div>
             <?php endif; ?>	
             
             <?php if($this->countModules('banner2')) : ?>
-                <div role="banner" id="banner2" class="<?php echo $banner2Cols; ?>col last">
+                <div role="banner" id="banner2" class="<?php echo htmlspecialchars($banner2Cols); ?>col last">
                     <jdoc:include type="modules" name="banner2" style="XHTML" />
                 </div>
             <?php endif; ?>	
@@ -109,25 +109,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
       <div class="container">
           <div class="row clearfix">
               <?php if($this->countModules('above1')) : ?>
-              <div id="above1" class="<?php echo $above1Cols; ?>col"> 
+              <div id="above1" class="<?php echo htmlspecialchars($above1Cols); ?>col"> 
                       <jdoc:include type="modules" name="above1" style="XHTML" />
               </div>
               <?php endif; ?>
                                   
               <?php if($this->countModules('above2')) : ?>
-              <div id="above2" class="<?php echo $above2Cols; ?>col">
+              <div id="above2" class="<?php echo htmlspecialchars($above2Cols); ?>col">
                       <jdoc:include type="modules" name="above2" style="XHTML" />
               </div>
               <?php endif; ?>
                                   
               <?php if($this->countModules('above3')) : ?>
-              <div id="above3" class="<?php echo $above3Cols; ?>col">
+              <div id="above3" class="<?php echo htmlspecialchars($above3Cols); ?>col">
                       <jdoc:include type="modules" name="above3" style="XHTML" />
               </div>
               <?php endif; ?>
                                   
               <?php if($this->countModules('above4')) : ?>
-              <div id="above4" class="<?php echo $above4Cols; ?>col last">
+              <div id="above4" class="<?php echo htmlspecialchars($above4Cols); ?>col last">
                       <jdoc:include type="modules" name="above4" style="XHTML" />
               </div>
               <?php endif; ?>
@@ -155,18 +155,18 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
           <div class="row clearfix">                                
                       
               <?php if($this->countModules('left')) : ?>
-              <aside id="left" class="<?php echo $leftCols; ?>col clearfix" role="complementary">
+              <aside id="left" class="<?php echo htmlspecialchars($leftCols); ?>col clearfix" role="complementary">
                       <jdoc:include type="modules" name="left" style="XHTML" />
               </aside>
               <?php endif; ?>     
               
-              <div id="main" role="main" class="<?php echo $mainCols; ?>col clearfix">
+              <div id="main" role="main" class="<?php echo htmlspecialchars($mainCols); ?>col clearfix">
                      <jdoc:include type="message" />
               <jdoc:include type="component" />
               </div>   
               
               <?php if($this->countModules('right')) : ?>
-              <aside id="right" class="<?php echo $rightCols; ?>col last clearfix" role="complementary">
+              <aside id="right" class="<?php echo htmlspecialchars($rightCols); ?>col last clearfix" role="complementary">
                       <jdoc:include type="modules" name="right" style="XHTML" />
               </aside>
               <?php endif; ?>
@@ -180,25 +180,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 		<div class="container">
         	<div class="row clearfix">
 				<?php if($this->countModules('below1')) : ?>
-				<div id="below1" class="<?php echo $below1Cols; ?>col"> 
+				<div id="below1" class="<?php echo htmlspecialchars($below1Cols); ?>col"> 
 						<jdoc:include type="modules" name="below1" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('below2')) : ?>
-				<div id="below2" class="<?php echo $below2Cols; ?>col">
+				<div id="below2" class="<?php echo htmlspecialchars($below2Cols); ?>col">
 						<jdoc:include type="modules" name="below2" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('below3')) : ?>
-				<div id="below3" class="<?php echo $below3Cols; ?>col">
+				<div id="below3" class="<?php echo htmlspecialchars($below3Cols); ?>col">
 						<jdoc:include type="modules" name="below3" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('below4')) : ?>
-				<div id="below4" class="<?php echo $below4Cols; ?>col last">
+				<div id="below4" class="<?php echo htmlspecialchars($below4Cols); ?>col last">
 						<jdoc:include type="modules" name="below4" style="XHTML" />
 				</div>
 				<?php endif; ?>
@@ -212,25 +212,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 		<div class="container">
         	<div class="row clearfix">
 				<?php if($this->countModules('bottom1')) : ?>
-				<div id="bottom1" class="<?php echo $bottom1Cols; ?>col"> 
+				<div id="bottom1" class="<?php echo htmlspecialchars($bottom1Cols); ?>col"> 
 						<jdoc:include type="modules" name="bottom1" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('bottom2')) : ?>
-				<div id="bottom2" class="<?php echo $bottom2Cols; ?>col">
+				<div id="bottom2" class="<?php echo htmlspecialchars($bottom2Cols); ?>col">
 						<jdoc:include type="modules" name="bottom2" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('bottom3')) : ?>
-				<div id="bottom3" class="<?php echo $bottom3Cols; ?>col">
+				<div id="bottom3" class="<?php echo htmlspecialchars($bottom3Cols); ?>col">
 						<jdoc:include type="modules" name="bottom3" style="XHTML" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if($this->countModules('bottom4')) : ?>
-				<div id="bottom4" class="<?php echo $bottom4Cols; ?>col last">
+				<div id="bottom4" class="<?php echo htmlspecialchars($bottom4Cols); ?>col last">
 						<jdoc:include type="modules" name="bottom4" style="XHTML" />
 				</div>
 				<?php endif; ?>
@@ -259,25 +259,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
         	<div class="row clearfix">
             
 			<?php if($this->countModules('footer1')) : ?>
-			<div id="footer1" class="<?php echo $footer1Cols; ?>col"> 
+			<div id="footer1" class="<?php echo htmlspecialchars($footer1Cols); ?>col"> 
             	<jdoc:include type="modules" name="footer1" style="XHTML" />
 			</div>
 			<?php endif; ?>
 									
 			<?php if($this->countModules('footer2')) : ?>
-			<div id="footer2" class="<?php echo $footer2Cols; ?>col">
+			<div id="footer2" class="<?php echo htmlspecialchars($footer2Cols); ?>col">
                 <jdoc:include type="modules" name="footer2" style="XHTML" />
 			</div>
 			<?php endif; ?>	
             
             <?php if($this->countModules('footer3')) : ?>
-			<div id="footer3" class="<?php echo $footer3Cols; ?>col">
+			<div id="footer3" class="<?php echo htmlspecialchars($footer3Cols); ?>col">
                 <jdoc:include type="modules" name="footer3" style="XHTML" />
 			</div>
 			<?php endif; ?>		
             
             <?php if($this->countModules('footer4')) : ?>
-			<div id="footer4" class="<?php echo $footer4Cols; ?>col last">
+			<div id="footer4" class="<?php echo htmlspecialchars($footer4Cols); ?>col last">
                 <jdoc:include type="modules" name="footer4" style="XHTML" />
 			</div>
 			<?php endif; ?>	
@@ -320,7 +320,7 @@ Modernizr.load({
 <?php if ($analytics != "UA-XXXXX-X") : ?>
 <!-- http://mths.be/aab -->
 <script>
-var _gaq=[['_setAccount','<?php echo $analytics; ?>'],['_trackPageview']]; 
+var _gaq=[['_setAccount','<?php echo htmlspecialchars($analytics); ?>'],['_trackPageview']]; 
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 <?php endif; ?>
