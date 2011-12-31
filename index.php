@@ -2,7 +2,7 @@
 /* =====================================================================
 Template:	OneWeb for Joomla 1.7						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
-Version: 	0.2 											             
+Version: 	0.3 											             
 Created: 	Dec 2011                                                    
 Copyright:	Seth Warburton - (C) 2011 - All rights reserved		
 License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html							             
@@ -32,7 +32,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
          <div class="row clearfix">
          	<a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>">
             	<header id="logo" class="<?php echo htmlspecialchars($logoCols); ?>col">	
-                    <div id="logotext"><?php echo $app->getCfg('sitename');?></div>     
+                    <div id="logotext"><?php echo htmlspecialchars($app->getCfg('sitename'));?></div>     
              	</header>
              </a> 
               <?php if($this->countModules('tagline')) : ?>
