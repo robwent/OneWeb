@@ -10,9 +10,19 @@ $(document).ready(function(){
 	event.preventDefault();
 	jQuery('nav#menu').toggleClass('visuallyhidden');
 });	
-     if(jQuery(window).width() > 767){
-		jQuery("nav#menu").removeClass('visuallyhidden');
-	 }
+	function adjustStyle(width) {
+    width = parseInt(width);
+    if (width > 767) {
+		jQuery('nav#menu').removeClass('visuallyhidden');
+    }
+}
+	// Chris Coyier's elegant screensize test http://css-tricks.com/resolution-specific-stylesheets/
+	jQuery(function() {
+    adjustStyle($(this).width());
+    jQuery(window).resize(function() {
+        adjustStyle($(this).width());
+    });
+});	
 
 	// Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
 	if (jQuery.fn.mobileMenu) {
