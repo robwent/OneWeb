@@ -66,9 +66,9 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
             <?php $counter++; ?>
                 <?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
 			<?php endif; ?>
+	<?php endforeach; ?>
     </div>
 </section>
-	<?php endforeach; ?>
 <?php endif; ?>
 
 <?php if (!empty($this->link_items)) : ?>
