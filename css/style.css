@@ -614,7 +614,7 @@ li.pagenav-next {float:right;}
 	margin:0;
 }
 .actions ul li {float:left;}
-aside {
+aside.articleMeta {
 	color:#bbb;
 	font-style:italic;
 	font-size:12px;
