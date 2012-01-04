@@ -19,11 +19,10 @@ $analytics 				= $this->params->get('analytics');
 // Check for modules in columns
 // from http://groups.google.com/group/joomla-dev-general/bse_thread/thread/b54f3f131dd173d
 
-$logo = (int) ($this->countModules('logo') > 0);
-$tagline = (int) ($this->countModules('tagline') > 0);
-$search = (int) ($this->countModules('search') > 0);
-
 $menu = (int) ($this->countModules('menu') > 0);
+$mobileMenu = (int) ($this->countModules('mobile-menu') > 0);
+$search = (int) ($this->countModules('search') > 0);
+$tagline = (int) ($this->countModules('tagline') > 0);
 $breadcrumbs = (int) ($this->countModules('breadcrumbs') > 0);
 
 $banner1 = (int) ($this->countModules('banner1') > 0);
