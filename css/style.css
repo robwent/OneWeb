@@ -558,7 +558,7 @@ box-shadow : none; }
 	padding-top:0;
 }
 /* main menu styles */
-.no-js #mobileMenu {display:none;}
+.no-js a#mobileMenu.button {display:none;}
 a#mobileMenu.button {
 	width:100%;
 	padding: .75em 0;
