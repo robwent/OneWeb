@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /* =====================================================================
-Template:	OneWeb for Joomla 1.7						            
+Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
 Version: 	0.2 											             
 Created: 	Dec 2011                                                    

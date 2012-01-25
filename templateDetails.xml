@@ -8,7 +8,7 @@
 	<authorUrl>http://internet-inspired.com</authorUrl>
 	<copyright>Copyright (C) 2011 Seth Warburton | Internet Inspired! All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
-	<version>0.2</version>	
+	<version>0.5</version>	
 	<description><![CDATA[
 	<p>One Web! is a responsive, 'mobile first' HTML5 template from <a href="http://internet-inspired.com">Internet Inspired!</a>.</p><p>It incorporates the hard work of others (proper coders, unlike me), I just rolled it all together and added some spit and polish to it. Notably, this template takes the HTML5 goodness and awesome polyfills from the <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> of Paul Irish, the mobile first logic and sexy typographic basics from <a href="http://www.stuffandnonsense.co.uk/projects/320andup/">320 and up</a> by Andy Clarke, some really neat Joomla! tricks and Google Font awesomeness from Matt Thomas' <a href="http://construct-framework.com/">Construct Framework</a> and a fluid <a href="http://cssgrid.net/">1140px Grid</a> grid from Andy Taylor.</p><p>What's left is the work of Seth Warburton @nternetinspired</p>
 	]]></description>
@@ -73,7 +73,7 @@
 			</fieldset>				
 		
 			<fieldset name="Typography" label="Typography">					
-				<field name="bodyFontFamily" type="list" default="georgia" label="The Body Font">
+				<field name="bodyFontFamily" type="list" default="" label="The Body Font">
 					<option value="">- None Selected -</option>
 					<option value="arial">Arial</option>
 					<option value="arial-black">Arial Black</option>
