@@ -37,13 +37,13 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
              </a> 
               <?php if ($tagline > 0) : ?>
                     <div id="tagline" class="<?php echo htmlspecialchars($taglineCols); ?>col">
-                        <jdoc:include type="modules" name="tagline" style="XHTML" />
+                        <jdoc:include type="modules" name="tagline" style="html5" />
                     </div>
               <?php endif; ?>	
                 
               <?php if ($search > 0) : ?>
                   <div role="search" id="search" class="<?php echo htmlspecialchars($searchCols); ?>col last">
-                      <jdoc:include type="modules" name="search" style="XHTML" />
+                      <jdoc:include type="modules" name="search" style="html5" />
                   </div>
               <?php endif; ?> 
               		
@@ -59,7 +59,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
             <div id="menuButton">
                 <a id="mobileMenu" class="button mobile">Menu</a>
                     <nav id="menu" role="navigation" class="twelvecol clearfix">
-                        <jdoc:include type="modules" name="menu" style="XHTML" />
+                        <jdoc:include type="modules" name="menu" style="html5" />
                     </nav>
             </div>
             
@@ -74,7 +74,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
         <div class="row clearfix">
                   
             <nav id="breadcrumbs" role="navigation" class="twelvecol clearfix">
-                <jdoc:include type="modules" name="breadcrumbs" style="XHTML" />
+                <jdoc:include type="modules" name="breadcrumbs" style="html5" />
             </nav>
             
         </div>
@@ -89,13 +89,13 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
               
             <?php if ($banner1 > 0) : ?>
                 <div role="banner" id="banner1" class="<?php echo htmlspecialchars($banner1Cols); ?>col">
-                    <jdoc:include type="modules" name="banner1" style="XHTML" />
+                    <jdoc:include type="modules" name="banner1" style="html5" />
                 </div>
             <?php endif; ?>	
             
             <?php if ($banner2 > 0) : ?>
                 <div role="banner" id="banner2" class="<?php echo htmlspecialchars($banner2Cols); ?>col last">
-                    <jdoc:include type="modules" name="banner2" style="XHTML" />
+                    <jdoc:include type="modules" name="banner2" style="html5" />
                 </div>
             <?php endif; ?>	
             	
@@ -110,25 +110,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
           <div class="row clearfix">
               <?php if ($above1 > 0) : ?>
               <div id="above1" class="<?php echo htmlspecialchars($above1Cols); ?>col"> 
-                      <jdoc:include type="modules" name="above1" style="XHTML" />
+                      <jdoc:include type="modules" name="above1" style="html5" />
               </div>
               <?php endif; ?>
                                   
               <?php if ($above2 > 0) : ?>
               <div id="above2" class="<?php echo htmlspecialchars($above2Cols); ?>col">
-                      <jdoc:include type="modules" name="above2" style="XHTML" />
+                      <jdoc:include type="modules" name="above2" style="html5" />
               </div>
               <?php endif; ?>
                                   
               <?php if ($above3 > 0) : ?>
               <div id="above3" class="<?php echo htmlspecialchars($above3Cols); ?>col">
-                      <jdoc:include type="modules" name="above3" style="XHTML" />
+                      <jdoc:include type="modules" name="above3" style="html5" />
               </div>
               <?php endif; ?>
                                   
               <?php if ($above4 > 0) : ?>
               <div id="above4" class="<?php echo htmlspecialchars($above4Cols); ?>col last">
-                      <jdoc:include type="modules" name="above4" style="XHTML" />
+                      <jdoc:include type="modules" name="above4" style="html5" />
               </div>
               <?php endif; ?>
           </div>	
@@ -142,7 +142,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
                       
               <?php if ($left > 0) : ?>
               <aside id="left" class="<?php echo htmlspecialchars($leftCols); ?>col clearfix" role="complementary">
-                      <jdoc:include type="modules" name="left" style="XHTML" />
+                      <jdoc:include type="modules" name="left" style="html5" />
               </aside>
               <?php endif; ?>     
               
@@ -153,7 +153,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
               
               <?php if ($right > 0) : ?>
               <aside id="right" class="<?php echo htmlspecialchars($rightCols); ?>col last clearfix" role="complementary">
-                      <jdoc:include type="modules" name="right" style="XHTML" />
+                      <jdoc:include type="modules" name="right" style="html5" />
               </aside>
               <?php endif; ?>
               
@@ -167,25 +167,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
         	<div class="row clearfix">
 				<?php if ($below1 > 0) : ?>
 				<div id="below1" class="<?php echo htmlspecialchars($below1Cols); ?>col"> 
-						<jdoc:include type="modules" name="below1" style="XHTML" />
+						<jdoc:include type="modules" name="below1" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($below2 > 0) : ?>
 				<div id="below2" class="<?php echo htmlspecialchars($below2Cols); ?>col">
-						<jdoc:include type="modules" name="below2" style="XHTML" />
+						<jdoc:include type="modules" name="below2" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($below3 > 0) : ?>
 				<div id="below3" class="<?php echo htmlspecialchars($below3Cols); ?>col">
-						<jdoc:include type="modules" name="below3" style="XHTML" />
+						<jdoc:include type="modules" name="below3" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($below4 > 0) : ?>
 				<div id="below4" class="<?php echo htmlspecialchars($below4Cols); ?>col last">
-						<jdoc:include type="modules" name="below4" style="XHTML" />
+						<jdoc:include type="modules" name="below4" style="html5" />
 				</div>
 				<?php endif; ?>
 			</div>	
@@ -199,25 +199,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
         	<div class="row clearfix">
 				<?php if ($bottom1 > 0) : ?>
 				<div id="bottom1" class="<?php echo htmlspecialchars($bottom1Cols); ?>col"> 
-						<jdoc:include type="modules" name="bottom1" style="XHTML" />
+						<jdoc:include type="modules" name="bottom1" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($bottom2 > 0) : ?>
 				<div id="bottom2" class="<?php echo htmlspecialchars($bottom2Cols); ?>col">
-						<jdoc:include type="modules" name="bottom2" style="XHTML" />
+						<jdoc:include type="modules" name="bottom2" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($bottom3 > 0) : ?>
 				<div id="bottom3" class="<?php echo htmlspecialchars($bottom3Cols); ?>col">
-						<jdoc:include type="modules" name="bottom3" style="XHTML" />
+						<jdoc:include type="modules" name="bottom3" style="html5" />
 				</div>
 				<?php endif; ?>
 									
 				<?php if ($bottom4 > 0) : ?>
 				<div id="bottom4" class="<?php echo htmlspecialchars($bottom4Cols); ?>col last">
-						<jdoc:include type="modules" name="bottom4" style="XHTML" />
+						<jdoc:include type="modules" name="bottom4" style="html5" />
 				</div>
 				<?php endif; ?>
 			</div>	
@@ -231,7 +231,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
         	<div class="row clearfix">  				                
                 
 					<nav id="footerMenu" role="navigation" class="clearfix" >
-						<jdoc:include type="modules" name="mobile-menu" style="XHTML" />
+						<jdoc:include type="modules" name="mobile-menu" style="html5" />
 					</nav>
                         	               
 			</div>	
@@ -246,25 +246,25 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
             
 			<?php if ($footer1 > 0) : ?>
 			<div id="footer1" class="<?php echo htmlspecialchars($footer1Cols); ?>col"> 
-            	<jdoc:include type="modules" name="footer1" style="XHTML" />
+            	<jdoc:include type="modules" name="footer1" style="html5" />
 			</div>
 			<?php endif; ?>
 									
 			<?php if ($footer2 > 0) : ?>
 			<div id="footer2" class="<?php echo htmlspecialchars($footer2Cols); ?>col">
-                <jdoc:include type="modules" name="footer2" style="XHTML" />
+                <jdoc:include type="modules" name="footer2" style="html5" />
 			</div>
 			<?php endif; ?>	
             
             <?php if ($footer3 > 0) : ?>
 			<div id="footer3" class="<?php echo htmlspecialchars($footer3Cols); ?>col">
-                <jdoc:include type="modules" name="footer3" style="XHTML" />
+                <jdoc:include type="modules" name="footer3" style="html5" />
 			</div>
 			<?php endif; ?>		
             
             <?php if ($footer4 > 0) : ?>
 			<div id="footer4" class="<?php echo htmlspecialchars($footer4Cols); ?>col last">
-                <jdoc:include type="modules" name="footer4" style="XHTML" />
+                <jdoc:include type="modules" name="footer4" style="html5" />
 			</div>
 			<?php endif; ?>	
             			
