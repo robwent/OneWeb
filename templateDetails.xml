@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install PUBLIC "-//Joomla! 1.7//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
-<extension version="1.7" type="template" client="site">
+<extension version="2.5" type="template" client="site">
 	<name>OneWeb</name>
 	<creationDate>December 15th, 2011</creationDate>
 	<author>Seth Warburton</author>
@@ -8,7 +8,7 @@
 	<authorUrl>http://internet-inspired.com</authorUrl>
 	<copyright>Copyright (C) 2011 Seth Warburton | Internet Inspired! All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
-	<version>0.5</version>	
+	<version>0.6</version>	
 	<description><![CDATA[
 	<p>One Web! is a responsive, 'mobile first' HTML5 template from <a href="http://internet-inspired.com">Internet Inspired!</a>.</p><p>It incorporates the hard work of others (proper coders, unlike me), I just rolled it all together and added some spit and polish to it. Notably, this template takes the HTML5 goodness and awesome polyfills from the <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> of Paul Irish, the mobile first logic and sexy typographic basics from <a href="http://www.stuffandnonsense.co.uk/projects/320andup/">320 and up</a> by Andy Clarke, some really neat Joomla! tricks and Google Font awesomeness from Matt Thomas' <a href="http://construct-framework.com/">Construct Framework</a> and a fluid <a href="http://cssgrid.net/">1140px Grid</a> grid from Andy Taylor.</p><p>What's left is the work of Seth Warburton @nternetinspired</p>
 	]]></description>
