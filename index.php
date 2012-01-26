@@ -146,7 +146,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
               </aside>
               <?php endif; ?>     
               
-              <div id="main" role="main" class="<?php echo htmlspecialchars($mainCols); ?>col clearfix">
+              <div id="main" role="main" class="<?php echo htmlspecialchars($mainCols); ?>col <?php if ($right == 0) echo "last" ; ?> clearfix">
                      <jdoc:include type="message" />
               <jdoc:include type="component" />
               </div>   
