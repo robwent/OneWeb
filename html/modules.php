@@ -15,15 +15,15 @@ function modChrome_html5($module, &$params, &$attribs)
 	if (!empty ($module->content)) : ?>
     <article class="moduletable<?php echo $params->get('moduleclass_sfx'); ?>" id="module-<?php echo $module->id; ?>">
 		<?php if ($module->showtitle) : ?>
-        	<header class="module-title">
-            	<h3>
-					<?php echo $module->title; ?>
+            <header class="module-title">
+                <h3>
+               		<?php echo $module->title; ?>
                 </h3>
-			</header>
+            </header>
 		<?php endif; ?>
-        <section class="module-content">
-		<?php echo $module->content; ?>
-        </section>
+            <section class="module-content">
+                <?php echo $module->content; ?>
+            </section>
     </article>
 	<?php endif;
 }
