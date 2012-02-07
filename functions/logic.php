@@ -100,8 +100,8 @@ $footerModules = $footer1 + $footer2 + $footer3 + $footer4;
 #-----------------------------See if we are on the homepage-----------------------------#
 // from Anthony Olsen of Joomla Bamboo, http://www.joomlabamboo.com
 
-$menu = & JSite::getMenu();
-if ($menu->getActive() == $menu->getDefault()) {$siteHome = 'home';}else{$siteHome = 'sub';}
+$activeMenu = & JSite::getMenu();
+if ($activeMenu->getActive() == $activeMenu->getDefault()) {$siteHome = 'home';}else{$siteHome = 'sub';}
 
 #----------------------------- Construct Code Snippets-----------------------------#
 // GPL code taken from Construct template framework by Matt Thomas http://construct-framework.com/
