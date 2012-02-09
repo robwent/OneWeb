@@ -17,7 +17,7 @@ $params		= $this->item->params;
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
 ?>
-<article class="item-page<?php echo $this->pageclass_sfx?>">
+<article class="fulltext<?php echo $this->pageclass_sfx?>">
 <?php if ($this->params->get('show_page_heading', 1)) : ?>
 <hgroup>
     <header>
