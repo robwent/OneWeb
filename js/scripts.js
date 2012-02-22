@@ -19,7 +19,7 @@ menu.toggleClass('visuallyhidden');
 											});	
 function menuSwitch(width) {
 	width = jQuery(window).width();
-	if (width > 760){
+	if (width > 750){
 		menu.removeClass('visuallyhidden');
 					}
 		else menu.addClass('visuallyhidden');
