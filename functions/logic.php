@@ -2,7 +2,7 @@
 /* =====================================================================
 Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
-Version: 	0.2 											             
+Version: 	0.3 											             
 Created: 	Dec 2011                                                    
 Copyright:	Seth Warburton - (C) 2011 - All rights reserved
 Sources:	http://construct-framework.com/				         					         
@@ -171,7 +171,6 @@ if ($jQuery) {
 }
 
 // Site icons
-$doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/img/small/apple-touch-icon.png','image/png','shortcut icon');
 $doc->addFavicon($template.'/img/small/apple-touch-icon-precomposed.png','image/png','apple-touch-icon-precomposed');
 $doc->addCustomTag('<link href="'.$template.'/img/medium/apple-touch-icon.png" rel="apple-touch-icon-precomposed" sizes="72x72">');

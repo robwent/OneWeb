@@ -456,7 +456,8 @@ a.button,
 ul.pagenav li a,
 input.button,
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+#mobileMenu {
 	cursor : pointer;
 	display: inline-block;
     position: relative;
@@ -558,8 +559,8 @@ box-shadow : none; }
 	padding-top:0;
 }
 /* main menu styles */
-.no-js a#mobileMenu.button {display:none;}
-a#mobileMenu.button {
+.no-js #mobileMenu {display:none;}
+#mobileMenu {
 	width:100%;
 	padding: .75em 0;
 	display: block;

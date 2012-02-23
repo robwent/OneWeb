@@ -13,10 +13,9 @@ if (jQuery.fn.placeholder) {
 var menu = jQuery('#menu')
 
 menu.addClass('visuallyhidden');
-jQuery("a#mobileMenu").click(function(event) {
-event.preventDefault();
+jQuery('#mobileMenu').click(function() {
 menu.toggleClass('visuallyhidden');
-											});	
+});	
 function menuSwitch(width) {
 	width = jQuery(window).width();
 	if (width > 750){
