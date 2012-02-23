@@ -56,7 +56,7 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
     <div class="container">
         <div class="row clearfix">
                   
-            <a id="mobileMenu" href="#" class="mobile">Menu</a>
+            <div id="mobileMenu" class="mobile">Menu</div>
                     <nav id="menu" role="navigation" class="twelvecol clearfix <?php echo $siteHome; ?>">
                         <jdoc:include type="modules" name="menu" style="html5" />
                     </nav>          
