@@ -1,17 +1,20 @@
 <?php
-/**
- * @version		$Id: blog_item.php 21651 2011-06-23 05:31:49Z chdemko $
- * @package		Joomla.Site
- * @subpackage	Template.320j.
- * @author		Seth Warburton | @nternetinspired | http://internet-inspired.com
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
+ /* =====================================================================
+Template:	OneWeb for Joomla 2.5						            
+Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
+Version: 	1.0 											             
+Created: 	Feb 2012                                                    
+Copyright:	Seth Warburton - (C) 2012 - All rights reserved		
+License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+Source: 	J2.5.1. com_content/views/							             		
+/* ===================================================================== */
 
 // no direct access
 defined('_JEXEC') or die;
 
 // Create a shortcut for params.
 $params = &$this->item->params;
+$images = json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
@@ -36,8 +39,7 @@ JHtml::core();
 <?php endif; ?>
 
 <?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
-<section class="actions">
-	<ul>
+	<ul class="actions">
 		<?php if ($params->get('show_print_icon')) : ?>
 		<li class="print-icon">
 			<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
@@ -54,7 +56,6 @@ JHtml::core();
 		</li>
 		<?php endif; ?>
 	</ul>
-</section>    
 <?php endif; ?>
 
 <?php if (!$params->get('show_intro')) : ?>
@@ -66,12 +67,14 @@ JHtml::core();
 <?php // to do not that elegant would be nice to group the params ?>
 
 <?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
-<aside class="articleMeta"><span class="description"><?php echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></span><?php endif; ?>
+<aside class="article-meta">
+<span class="article-info-term"><?php  echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></span>
+<?php endif; ?>
 <?php if ($params->get('show_parent_category') && $this->item->parent_id != 1) : ?>
-		<span class="parent">
+		<span class="parent-category-name">
 			<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_id)) . '">' . $title . '</a>'; ?>
-			<?php if ($params->get('link_parent_category')) : ?>
+				$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>'; ?>
+			<?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
 				<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
 				<?php else : ?>
 				<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
@@ -79,10 +82,10 @@ JHtml::core();
 		</span>
 <?php endif; ?>
 <?php if ($params->get('show_category')) : ?>
-		<span class="category">
+		<span class="category-name">
 			<?php $title = $this->escape($this->item->category_title);
-					$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catid)) . '">' . $title . '</a>'; ?>
-			<?php if ($params->get('link_category')) : ?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+			<?php if ($params->get('link_category') AND $this->item->catslug) : ?>
 				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
 				<?php else : ?>
 				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
@@ -100,14 +103,14 @@ JHtml::core();
     <span class="publishDate"><?php echo JText::_('COM_CONTENT_PUBLISHED_DATE') ;?>
         <span class="day"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('d'))); ?></span>
         <span class="month"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('F'))); ?></span>
-        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('Y'))); ?>.</span>
+        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('Y'))); ?></span>
     </span>
 <?php endif; ?>
 <?php if ($params->get('show_modify_date')) : ?>
     <span class="modifiedDate"><?php echo JText::_('COM_CONTENT_LAST_UPDATED') ;?>
         <span class="day"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('d'))); ?></span>
         <span class="month"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('F'))); ?></span>
-        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('Y'))); ?>.</span>
+        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('Y'))); ?></span>
     </span>
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
@@ -129,14 +132,24 @@ JHtml::core();
 		<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 		</span>
 <?php endif; ?>
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) :?>
-</aside>    
+<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
+ </aside>
 <?php endif; ?>
 
 <section class="article-intro">
+<?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
+	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
+	<section class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
+	<img
+		<?php if ($images->image_intro_caption):
+			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
+		endif; ?>
+		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
+	</section>
+<?php endif; ?>
 <?php echo $this->item->introtext; ?>
 </section>
-<footer class="article-readmore">
+
 <?php if ($params->get('show_readmore') && $this->item->readmore) :
 	if ($params->get('access-view')) :
 		$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
@@ -150,6 +163,7 @@ JHtml::core();
 		$link->setVar('return', base64_encode($returnURL));
 	endif;
 ?>
+<footer class="article-readmore">
 		<p class="readmore">
 				<a href="<?php echo $link; ?>">
 					<?php if (!$params->get('access-view')) :
@@ -166,8 +180,9 @@ JHtml::core();
 						echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 					endif; ?></a>
 		</p>
+</footer>        
 <?php endif; ?>
-</footer>
+
 <?php if ($this->item->state == 0) : ?>
 </section>
 <?php endif; ?>

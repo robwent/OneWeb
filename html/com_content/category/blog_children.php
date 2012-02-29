@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id: blog_children.php 20196 2011-01-09 02:40:25Z ian $
  * @package		Joomla.Site
- * @subpackage	Template.320j.
- * @author		Seth Warburton | @nternetinspired | http://internet-inspired.com
+ * @subpackage	com_content
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -23,19 +22,19 @@ $class = ' class="first"';
 		?>
 		<li<?php echo $class; ?>>
 			<?php $class = ''; ?>
-			<header class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id));?>">
+			<span class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id));?>">
 				<?php echo $this->escape($child->title); ?></a>
-			</header>
+			</span>
 
 			<?php if ($this->params->get('show_subcat_desc') == 1) :?>
 			<?php if ($child->description) : ?>
-				<section class="category-desc">
-					<?php echo JHtml::_('content.prepare', $child->description); ?>
-				</section>
+				<div class="category-desc">
+					<?php echo JHtml::_('content.prepare', $child->description, '', 'com_content.category'); ?>
+				</div>
 			<?php endif; ?>
             <?php endif; ?>
 
-			<?php if ( $this->params->get('show_cat_num_articles',1)) : ?>
+			<?php if ( $this->params->get('show_cat_num_articles', 1)) : ?>
 			<dl>
 				<dt>
 					<?php echo JText::_('COM_CONTENT_NUM_ITEMS') ; ?>

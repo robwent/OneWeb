@@ -1,11 +1,14 @@
 <?php
 /**
- * @version		$Id: default.php 20196 2011-01-09 02:40:25Z ian $
- * @package		Joomla.Site
- * @subpackage	Template.320j.
- * @author		Seth Warburton | @nternetinspired | http://internet-inspired.com
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
+ /* =====================================================================
+Template:	OneWeb for Joomla 2.5						            
+Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
+Version: 	1.0 											             
+Created: 	Feb 2012                                                    
+Copyright:	Seth Warburton - (C) 2012 - All rights reserved		
+License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+Source: 	J2.5.1. com_content/views/							             		
+/* ===================================================================== */
 
 // no direct access
 defined('_JEXEC') or die;
@@ -17,20 +20,20 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
     <header>
-        <h1>
-            <?php echo $this->escape($this->params->get('page_heading')); ?>
-        </h1>
+	<h1>
+		<?php echo $this->escape($this->params->get('page_heading')); ?>
+	</h1>
     </header>
 	<?php endif; ?>
 
-	<?php if ($this->params->get('show_category_title', 1) OR $this->params->get('page_subheading')) : ?>
-	<header>
-        <h2>
-            <?php echo $this->escape($this->params->get('page_subheading')); ?>
-            <?php if ($this->params->get('show_category_title')) : ?>
-                <span class="subheading-category"><?php echo $this->category->title;?></span>
-            <?php endif; ?>
-        </h2>
+	<?php if ($this->params->get('show_category_title', 1) or $this->params->get('page_subheading')) : ?>
+    <header>
+	<h2>
+		<?php echo $this->escape($this->params->get('page_subheading')); ?>
+		<?php if ($this->params->get('show_category_title')) : ?>
+			<span class="subheading-category"><?php echo $this->category->title;?></span>
+		<?php endif; ?>
+	</h2>
     </header>
 	<?php endif; ?>
 
@@ -40,23 +43,22 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 			<img src="<?php echo $this->category->getParams()->get('image'); ?>"/>
 		<?php endif; ?>
 		<?php if ($this->params->get('show_description') && $this->category->description) : ?>
-			<?php echo JHtml::_('content.prepare', $this->category->description); ?>
+			<?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
 		<?php endif; ?>
-		<div class="clr"></div>
 	</section>
 	<?php endif; ?>
 
-	<section class="category-items">
+	<section class="cat-items">
 		<?php echo $this->loadTemplate('articles'); ?>
 	</section>
 
 	<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
-	<section class="category-children">
-        <header>
-            <h3>
-                <?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
-            </h3>
-        </header>
+	<section class="cat-children">
+    <header>
+		<h3>
+			<?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
+		</h3>
+	</header>
 		<?php echo $this->loadTemplate('children'); ?>
 	</section>
 	<?php endif; ?>
