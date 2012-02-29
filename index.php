@@ -2,7 +2,7 @@
 /* =====================================================================
 Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
-Version: 	0.5 											             
+Version: 	1.0 											             
 Created: 	Dec 2011                                                    
 Copyright:	Seth Warburton - (C) 2011 - All rights reserved		
 License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html							             
@@ -23,6 +23,11 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <jdoc:include type="head" />
+<script>
+if ( ! Modernizr.mq('(min-width:0)') ) {
+  document.write('<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/libs/respond.min.js"></s'+'cript>');
+}
+</script>
 </head>
 
 <body class="<?php echo htmlspecialchars($bodyFontFamily); ?> clearfix">
@@ -292,12 +297,6 @@ include_once (dirname(__FILE__).DS.'functions/logic.php');
 <script>
 // iOS scale bug fix
 MBP.scaleFix();
-
-// Respond.js
-Modernizr.load({
-	test : Modernizr.mq('all and (min-width: 0px)'),
-	nope : ['<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/libs/respond.min.js']
-});
 </script>
 
 <?php if ($analytics != "UA-XXXXX-X") : ?>
