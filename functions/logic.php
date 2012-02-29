@@ -2,7 +2,7 @@
 /* =====================================================================
 Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
-Version: 	0.3 											             
+Version: 	1.0 											             
 Created: 	Dec 2011                                                    
 Copyright:	Seth Warburton - (C) 2011 - All rights reserved
 Sources:	http://construct-framework.com/				         					         
@@ -165,7 +165,7 @@ if ($googleWebFont3) {
 
 #----------------------------- Inject extras into the head -----------------------------#
 // Musthave JS
-$doc->addCustomTag('<script src="'.$template.'/js/libs/modernizr-2.0.6.min.js"></script>');
+$doc->addCustomTag('<script src="'.$template.'/js/libs/modernizr.2.5.3.custom.js"></script>');
 if ($jQuery) {
   $doc->addCustomTag('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>');
 }
