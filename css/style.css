@@ -631,8 +631,7 @@ aside.articleMeta {
 /* 14 COMPLEMENTARY 		============================================================================= */
 /* 15 CONTENTINFO 			============================================================================= */
 footer,
-footer p{
-	font-size:80%;
+footer p {
 	color:#777;
 }
 /* 16 HELPERS		 		============================================================================= */
@@ -923,9 +922,7 @@ tr {
 	width:45%;
 	margin-right:10%;
 	}
-.intro-articles .article-1,
-.intro-articles .article-3,
-.intro-articles .article-5 {
+.intro-articles article.column-2 {
 	margin-right:0;
 }
 /* 14 COMPLEMENTARY 		============================================================================= */
@@ -1087,12 +1084,10 @@ nav ul.menu li a {
 	width:30.75%;
 	margin-right:3.8%;
 	}
-.intro-articles .article-1,
-.intro-articles .article-3 {
+.intro-articles article-1.column-2 {
 	margin-right:3.8%;
 }
-.intro-articles .article-2,
-.intro-articles .article-6 {
+.intro-articles article-2.column-3 {
 	margin-right:0;
 }
 /* 14 COMPLEMENTARY 		============================================================================= */
