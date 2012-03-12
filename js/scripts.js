@@ -10,11 +10,13 @@ if (jQuery.fn.placeholder) {
 }
 
 /* Mobile Menu - Seth Warburton @nternetinspired */
-var menu = jQuery('#menu')
+var menu = jQuery('#menu');
 
 menu.addClass('visuallyhidden');
-jQuery('#mobileMenu').click(function() {
-menu.toggleClass('visuallyhidden');
+jQuery('#mobileMenu').click(function(event) {
+	event.preventDefault();
+	menu.toggleClass('visuallyhidden');
+	jQuery(this).toggleClass('active');
 });	
 function menuSwitch(width) {
 	width = jQuery(window).width();
