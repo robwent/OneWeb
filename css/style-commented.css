@@ -875,8 +875,8 @@ label#jform_contact_email_copy-lbl {
 }
 /* 20 MODULE STYLES 		============================================================================= */
 article {
-	margin-bottom:60px;
-	margin-bottom:6rem;
+	margin-bottom:40px;
+	margin-bottom:4rem;
 }
 @media print {
   * {
