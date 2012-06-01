@@ -18,7 +18,7 @@ function modChrome_html5($module, &$params, &$attribs)
 	if (!empty ($module->content)) : ?>
     <article class="moduletable<?php echo $params->get('moduleclass_sfx'); ?>" id="module-<?php echo $module->id; ?>">
 		<?php if ($module->showtitle) : ?>
-                <h<?php echo $headerLevel; ?> class="module-title"><?php echo $module->title; ?></h><?php echo $headerLevel; ?>>
+                <h<?php echo $headerLevel; ?> class="module-title"><?php echo $module->title; ?></h<?php echo $headerLevel; ?>>
 		<?php endif; ?>
             <section class="module-content"><?php echo $module->content; ?></section>
     </article>

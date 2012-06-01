@@ -5,10 +5,8 @@ Author: 	Seth Warburton - Internet Inspired! - @nternetinspired
 Version: 	2.0 											             
 Created: 	June 2012                                                    
 Copyright:	Seth Warburton - (C) 2012 - All rights reserved		
-Licenses:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
-			DBAD License http://philsturgeon.co.uk/code/dbad-license							             
-Sources:	http://html5boilerplate.com/
-			http://construct-framework.com/					
+Licenses:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html DBAD License http://philsturgeon.co.uk/code/dbad-license							             
+Sources:	http://html5boilerplate.com/ http://construct-framework.com/					
 /* ===================================================================== */
 
 // Define shortcuts for template parameters
