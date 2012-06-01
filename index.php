@@ -2,311 +2,194 @@
 /* =====================================================================
 Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
-Version: 	1.0 											             
-Created: 	Dec 2011                                                    
-Copyright:	Seth Warburton - (C) 2011 - All rights reserved		
-License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html							             
+Version: 	2.0 											             
+Created: 	June 2012                                                    
+Copyright:	Seth Warburton - (C) 2012 - All rights reserved		
+Licenses:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+			DBAD License http://philsturgeon.co.uk/code/dbad-license							             
 Sources:	http://html5boilerplate.com/
-			http://stuffandnonsense.co.uk/projects/320andup/
 			http://construct-framework.com/					
 /* ===================================================================== */
 
 // Load template logic
-include_once (dirname(__FILE__).DS.'functions/logic.php');  
+include_once JPATH_THEMES . '/' . $this->template . '/logic.php';  
 ?>
 <!doctype html>
-<!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
-<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- HTML5 Boilerplate -->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!-- HTML5 Mobile Boilerplate - Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]> <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 <jdoc:include type="head" />
-<script>
-if ( ! Modernizr.mq('(min-width:0)') ) {
-  document.write('<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/libs/respond.min.js"></s'+'cript>');
-}
-</script>
 </head>
-
-<body class="<?php echo htmlspecialchars($bodyFontFamily); ?> clearfix">
-
-<div id="logoRow">
-    <div class="container">
-         <div class="row clearfix">
-         	<a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>">
-            	<header id="logo" class="<?php echo htmlspecialchars($logoCols); ?>col">	
-                    <div id="logotext"><?php echo htmlspecialchars($app->getCfg('sitename'));?></div>     
-             	</header>
-             </a> 
-              <?php if ($tagline > 0) : ?>
-                    <div id="tagline" class="<?php echo htmlspecialchars($taglineCols); ?>col">
-                        <jdoc:include type="modules" name="tagline" style="html5" />
-                    </div>
-              <?php endif; ?>	
-                
-              <?php if ($search > 0) : ?>
-                  <div role="search" id="search" class="<?php echo htmlspecialchars($searchCols); ?>col last">
-                      <jdoc:include type="modules" name="search" style="html5" />
-                  </div>
-              <?php endif; ?> 
-              		
-         </div>	
-    </div>  
+<body class="<?php echo $this->pageclass_sfx ?>clearfix">
+<div id="buttonRow" class="mobile clearfix">
+  <?php if($this->countModules('search')) : ?>
+		<a id="mobileSearch" href="#search" title="Jump to search">Search</a>
+  <?php endif; ?>
+  <a id="mobileMenu" href="#menu" title="Jump to navigation">Menu</a>
 </div>
-
-<?php if ($menu > 0) : ?>
-<header id="navRow">
-    <div class="container">
-        <div class="row clearfix">
-                  
-            <div id="mobileMenu" class="mobile">Menu</div>
-                    <nav id="menu" role="navigation" class="twelvecol clearfix <?php echo $siteHome; ?>">
-                        <jdoc:include type="modules" name="menu" style="html5" />
-                    </nav>          
-        </div>
+<div id="logoRow" class="row clearfix">
+	<a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>">        		
+        <header id="logo"><?php echo htmlspecialchars($app->getCfg('sitename'));?></header>
+    </a>                     	
+</div>
+<div id="container">
+	<?php if($this->countModules('banner')) : ?>
+    <div id="bannerRow" class="row clearfix">           
+        <header role="banner" id="banner">
+            <jdoc:include type="modules" name="banner" style="html5" headerLevel="4"/>
+        </header>	
     </div>
-</header>
-<?php endif; ?>
-
-<?php if ($breadcrumbs > 0) : ?>
-<header id="breadcrumbRow">
-    <div class="container">
-        <div class="row clearfix">
-                  
-            <nav id="breadcrumbs" role="navigation" class="twelvecol clearfix">
-                <jdoc:include type="modules" name="breadcrumbs" style="html5" />
-            </nav>
-            
+    <?php endif; ?>
+    <?php if ($aboveModules > 0) : ?>
+	<div id="aboveRow" class="row clearfix">   
+		<?php if($this->countModules('above1')) : ?>
+        <div id="above1"> 
+                <jdoc:include type="modules" name="above1" style="html5" headerLevel="4"/>
         </div>
+        <?php endif; ?>     
+        <?php if($this->countModules('above2')) : ?>
+        <div id="above2">
+                <jdoc:include type="modules" name="above2" style="html5" headerLevel="4"/>
+        </div>
+        <?php endif; ?>                       
+        <?php if($this->countModules('above3')) : ?>
+        <div id="above3">
+                <jdoc:include type="modules" name="above3" style="html5" headerLevel="4"/>
+        </div>
+        <?php endif; ?>                    
+        <?php if($this->countModules('above4')) : ?>
+        <div id="above4">
+                <jdoc:include type="modules" name="above4" style="html5" headerLevel="4"/>
+        </div>
+        <?php endif; ?>  
+        </div>
+	<?php endif; ?>
+    <?php if($this->countModules('breadcrumbs')) : ?>
+    <div id="breadcrumbRow" class="row clearfix">          
+        <nav id="breadcrumbs" role="navigation">
+            <jdoc:include type="modules" name="breadcrumbs" style="html5" headerLevel="4"/>
+        </nav>
     </div>
-</header>
-<?php endif; ?>
-
-<?php if ($bannerModules > 0) : ?>
-<header id="bannerRow">
-    <div class="container">
-         <div class="row clearfix">
-              
-            <?php if ($banner1 > 0) : ?>
-                <div role="banner" id="banner1" class="<?php echo htmlspecialchars($banner1Cols); ?>col">
-                    <jdoc:include type="modules" name="banner1" style="html5" />
-                </div>
-            <?php endif; ?>	
-            
-            <?php if ($banner2 > 0) : ?>
-                <div role="banner" id="banner2" class="<?php echo htmlspecialchars($banner2Cols); ?>col last">
-                    <jdoc:include type="modules" name="banner2" style="html5" />
-                </div>
-            <?php endif; ?>	
-            	
-         </div>	
-    </div>  
-</header>
-<?php endif; ?>
-
-<?php if ($aboveModules > 0) : ?>
-<div id="aboveRow">
-      <div class="container">
-          <div class="row clearfix">
-              <?php if ($above1 > 0) : ?>
-              <div id="above1" class="<?php echo htmlspecialchars($above1Cols); ?>col"> 
-                      <jdoc:include type="modules" name="above1" style="html5" />
-              </div>
-              <?php endif; ?>
-                                  
-              <?php if ($above2 > 0) : ?>
-              <div id="above2" class="<?php echo htmlspecialchars($above2Cols); ?>col">
-                      <jdoc:include type="modules" name="above2" style="html5" />
-              </div>
-              <?php endif; ?>
-                                  
-              <?php if ($above3 > 0) : ?>
-              <div id="above3" class="<?php echo htmlspecialchars($above3Cols); ?>col">
-                      <jdoc:include type="modules" name="above3" style="html5" />
-              </div>
-              <?php endif; ?>
-                                  
-              <?php if ($above4 > 0) : ?>
-              <div id="above4" class="<?php echo htmlspecialchars($above4Cols); ?>col last">
-                      <jdoc:include type="modules" name="above4" style="html5" />
-              </div>
-              <?php endif; ?>
-          </div>	
-      </div>
-</div>
-<?php endif; ?>
-
-<div id="mainRow">
-      <div class="container">
-          <div class="row clearfix">                                
-                      
-              <?php if ($left > 0) : ?>
-              <aside id="left" class="<?php echo htmlspecialchars($leftCols); ?>col clearfix" role="complementary">
-                      <jdoc:include type="modules" name="left" style="html5" />
-              </aside>
-              <?php endif; ?>     
-              
-              <div id="main" role="main" class="<?php echo htmlspecialchars($mainCols); ?>col <?php if ($right == 0) echo "last" ; ?> clearfix">
-                     <jdoc:include type="message" />
-              <jdoc:include type="component" />
-              </div>   
-              
-              <?php if ($right > 0) : ?>
-              <aside id="right" class="<?php echo htmlspecialchars($rightCols); ?>col last clearfix" role="complementary">
-                      <jdoc:include type="modules" name="right" style="html5" />
-              </aside>
-              <?php endif; ?>
-              
-          </div>	
-      </div>                			
-</div>
-
-<?php if ($belowModules > 0) : ?>
-<div id="belowRow">
-		<div class="container">
-        	<div class="row clearfix">
-				<?php if ($below1 > 0) : ?>
-				<div id="below1" class="<?php echo htmlspecialchars($below1Cols); ?>col"> 
-						<jdoc:include type="modules" name="below1" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($below2 > 0) : ?>
-				<div id="below2" class="<?php echo htmlspecialchars($below2Cols); ?>col">
-						<jdoc:include type="modules" name="below2" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($below3 > 0) : ?>
-				<div id="below3" class="<?php echo htmlspecialchars($below3Cols); ?>col">
-						<jdoc:include type="modules" name="below3" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($below4 > 0) : ?>
-				<div id="below4" class="<?php echo htmlspecialchars($below4Cols); ?>col last">
-						<jdoc:include type="modules" name="below4" style="html5" />
-				</div>
-				<?php endif; ?>
-			</div>	
-		</div>
-</div>
-<?php endif; ?>
-
-<?php if ($bottomModules > 0) : ?>
-<div id="bottomRow">
-		<div class="container">
-        	<div class="row clearfix">
-				<?php if ($bottom1 > 0) : ?>
-				<div id="bottom1" class="<?php echo htmlspecialchars($bottom1Cols); ?>col"> 
-						<jdoc:include type="modules" name="bottom1" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($bottom2 > 0) : ?>
-				<div id="bottom2" class="<?php echo htmlspecialchars($bottom2Cols); ?>col">
-						<jdoc:include type="modules" name="bottom2" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($bottom3 > 0) : ?>
-				<div id="bottom3" class="<?php echo htmlspecialchars($bottom3Cols); ?>col">
-						<jdoc:include type="modules" name="bottom3" style="html5" />
-				</div>
-				<?php endif; ?>
-									
-				<?php if ($bottom4 > 0) : ?>
-				<div id="bottom4" class="<?php echo htmlspecialchars($bottom4Cols); ?>col last">
-						<jdoc:include type="modules" name="bottom4" style="html5" />
-				</div>
-				<?php endif; ?>
-			</div>	
-		</div>
-</div>
-<?php endif; ?>
-
-<?php if ($mobileMenu > 0) : ?>
-<div id="footerNav" class="mobile">
-		<div class="container">
-        	<div class="row clearfix">  				                
-                
-					<nav id="footerMenu" role="navigation" class="clearfix" >
-						<jdoc:include type="modules" name="mobile-menu" style="html5" />
-					</nav>
-                        	               
-			</div>	
-		</div>
-</div>
-<?php endif; ?>
-
-<?php if ($footerModules > 0) : ?>
-<footer role="contentinfo">	
-    	<div class="container">
-        	<div class="row clearfix">
-            
-			<?php if ($footer1 > 0) : ?>
-			<div id="footer1" class="<?php echo htmlspecialchars($footer1Cols); ?>col"> 
-            	<jdoc:include type="modules" name="footer1" style="html5" />
-			</div>
-			<?php endif; ?>
-									
-			<?php if ($footer2 > 0) : ?>
-			<div id="footer2" class="<?php echo htmlspecialchars($footer2Cols); ?>col">
-                <jdoc:include type="modules" name="footer2" style="html5" />
-			</div>
-			<?php endif; ?>	
-            
-            <?php if ($footer3 > 0) : ?>
-			<div id="footer3" class="<?php echo htmlspecialchars($footer3Cols); ?>col">
-                <jdoc:include type="modules" name="footer3" style="html5" />
-			</div>
-			<?php endif; ?>		
-            
-            <?php if ($footer4 > 0) : ?>
-			<div id="footer4" class="<?php echo htmlspecialchars($footer4Cols); ?>col last">
-                <jdoc:include type="modules" name="footer4" style="html5" />
-			</div>
-			<?php endif; ?>	
-            			
-            </div>	
-		</div>				
-</footer>
-<?php endif; ?>
-
-<footer role="contentinfo">	
-    	<div class="container">
-        	<div class="row clearfix">      
-            <div id="credit" class="last">&copy; <?php echo date("Y"); ?> <a href="http://internet-inspired.com" title="Internet Inspired - Professional Joomla! Websmithing">Internet Inspired!</a></div>
+    <?php endif; ?>
+    <?php if($siteHome == 'sub' or ($frontpage == 0)) : ?>
+    <div id="mainRow" class="row clearfix">                                     
+        <?php if($this->countModules('left') or $this->countModules('search')) : ?>
+        <div id="main" role="main" class="mainLeft last clearfix">
+            <jdoc:include type="message" />
+            <jdoc:include type="component" />
+        </div>
+        <aside id="sidebar" class="clearfix" role="complementary">
+		  <?php if($this->countModules('left')) : ?>
+          <div id="left" class="clearfix">         
+                  <jdoc:include type="modules" name="left" style="html5"/>
+          </div>
+          <?php endif; ?>
+          <?php if($this->countModules('search')) : ?>
+            <div id="search" role="search">
+                  <jdoc:include type="modules" name="search" style="html5" />
             </div>
-		</div>				
+          <?php endif; ?>
+        </aside>  
+        <?php else : ?> 
+        <div id="main" role="main" class="main last clearfix">
+        <jdoc:include type="message" />
+        <jdoc:include type="component" />
+        </div>   
+        <?php endif; ?>                 			
+    </div>
+    <?php endif; ?>
+    <nav id="menu" role="navigation" class="row clearfix"> <!-- main nav is here for usability and SEO reasons -->
+    	<jdoc:include type="modules" name="menu" style="html5" />
+    </nav> 
+    <?php if ($bottomModules > 0) : ?>
+    <div id="bottomRow" class="row clearfix">     
+        <?php if($this->countModules('bottom1')) : ?>
+        <div id="bottom1"> 
+              <jdoc:include type="modules" name="bottom1" style="html5" />
+        </div>
+        <?php endif; ?>                    
+        <?php if($this->countModules('bottom2')) : ?>
+        <div id="bottom2">
+              <jdoc:include type="modules" name="bottom2" style="html5" />
+        </div>
+        <?php endif; ?>                    
+        <?php if($this->countModules('bottom3')) : ?>
+        <div id="bottom3">
+              <jdoc:include type="modules" name="bottom3" style="html5" />
+        </div>
+        <?php endif; ?>                 
+        <?php if($this->countModules('bottom4')) : ?>
+        <div id="bottom4">
+              <jdoc:include type="modules" name="bottom4" style="html5" />
+        </div>
+        <?php endif; ?>
+            <?php if($this->countModules('bottom5')) : ?>
+        <div id="bottom5">
+              <jdoc:include type="modules" name="bottom5" style="html5" />
+        </div>
+        <?php endif; ?>
+        <?php if($this->countModules('bottom6')) : ?>
+        <div id="bottom6">
+              <jdoc:include type="modules" name="bottom6" style="html5" />
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
+    <?php if ($footerModules > 0) : ?>
+    <footer role="contentinfo" class="row clearfix">        
+        <?php if($this->countModules('footer1')) : ?>
+        <div id="footer1"> 
+            <jdoc:include type="modules" name="footer1" style="html5" headerLevel="4" />
+        </div>
+        <?php endif; ?>                         
+        <?php if($this->countModules('footer2')) : ?>
+        <div id="footer2">
+            <jdoc:include type="modules" name="footer2" style="html5" headerLevel="4" />
+        </div>
+        <?php endif; ?>	    
+        <?php if($this->countModules('footer3')) : ?>
+        <div id="footer3">
+            <jdoc:include type="modules" name="footer3" style="html5" headerLevel="4" />
+        </div>
+        <?php endif; ?>		  
+        <?php if($this->countModules('footer4')) : ?>
+        <div id="footer4">
+            <jdoc:include type="modules" name="footer4" style="html5" headerLevel="4"/>
+        </div>
+        <?php endif; ?>						
+    </footer>
+	<?php endif; ?>
+</div>                                      
+<footer id="creditRow" class="row clearfix">      
+    <div id="creditRight" class="last">&copy; <?php echo date("Y"); ?> <a href="http://internet-inspired.com" title="Internet Inspired - Professional Joomla! Websmithing">Internet Inspired!</a> </div>				
 </footer>
-
 <jdoc:include type="modules" name="debug"/>
-
-<!-- Scripts -->
+<?php if ($scripts > 0) : ?>
+<!-- Custom template scripts. Place your plugin code and script calls in the following two file and enable custom script loading in the template settings -->
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/scripts.js"></script>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/plugins.js"></script>
-<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/mylibs/helper.js"></script>
-
-<!--[if (lt IE 9) & (!IEMobile)]>
-<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/libs/imgsizer.js"></script>
-<![endif]-->
-
+<?php endif; ?>
+<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/helper.js"></script>
+<!-- iOS scale bug fix -->
 <script>
-// iOS scale bug fix
 MBP.scaleFix();
 </script>
-
 <?php if ($analytics != "UA-XXXXX-X") : ?>
 <!-- http://mths.be/aab -->
 <script>
-var _gaq=[['_setAccount','<?php echo htmlspecialchars($analytics); ?>'],['_trackPageview']]; 
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
+var _gaq=[['_setAccount','<?php echo htmlspecialchars($analytics); ?>'],["_trackPageview"]];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+s.parentNode.insertBefore(g,s)}(document,"script"));
 </script>
 <?php endif; ?>
-
 <noscript>JavaScript is unavailable or disabled; so you are probably going to miss out on a few things. Everything should still work, but with a little less pzazz!</noscript>
 </body>
 </html>

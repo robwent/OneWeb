@@ -67,74 +67,68 @@ $canEdit	= $this->item->params->get('access-edit');
 
 <?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
 <aside class="article-meta">
-<span class="article-info-term"><?php  echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></span>
+	<dl class="article-info">
+	<dt class="article-info-term"><?php  echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></dt>
 <?php endif; ?>
-<?php if ($params->get('show_parent_category') && $this->item->parent_id != 1) : ?>
-		<span class="parent-category-name">
-			<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>'; ?>
-			<?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
-				<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
-				<?php else : ?>
-				<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
-			<?php endif; ?>
-		</span>
+<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
+	<dd class="parent-category-name">
+	<?php	$title = $this->escape($this->item->parent_title);
+	$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
+	<?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
+		<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
+	<?php else : ?>
+		<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
+	<?php endif; ?>
+	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_category')) : ?>
-		<span class="category-name">
-			<?php $title = $this->escape($this->item->category_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
-			<?php if ($params->get('link_category') AND $this->item->catslug) : ?>
-				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
-				<?php else : ?>
-				<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
-			<?php endif; ?>
-		</span>
+	<dd class="category-name">
+	<?php 	$title = $this->escape($this->item->category_title);
+	$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+	<?php if ($params->get('link_category') AND $this->item->catslug) : ?>
+		<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
+	<?php else : ?>
+		<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
+	<?php endif; ?>
+	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
-    <span class="createDate"><?php echo JText::_('COM_CONTENT_CREATED_DATE_ON') ;?>
-        <span class="day"><?php echo JText::sprintf( JHTML::_('date',$this->item->created, JText::_('d'))); ?></span>
-        <span class="month"><?php echo JText::sprintf( JHTML::_('date',$this->item->created, JText::_('F'))); ?></span>
-        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->created, JText::_('Y'))); ?></span>
-    </span>
-<?php endif; ?>
-<?php if ($params->get('show_publish_date')) : ?>
-    <span class="publishDate"><?php echo JText::_('COM_CONTENT_PUBLISHED_DATE') ;?>
-        <span class="day"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('d'))); ?></span>
-        <span class="month"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('F'))); ?></span>
-        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->publish_up, JText::_('Y'))); ?></span>
-    </span>
+	<dd class="create">
+	<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
+	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_modify_date')) : ?>
-    <span class="modifiedDate"><?php echo JText::_('COM_CONTENT_LAST_UPDATED') ;?>
-        <span class="day"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('d'))); ?></span>
-        <span class="month"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('F'))); ?></span>
-        <span class="year"><?php echo JText::sprintf( JHTML::_('date',$this->item->modified, JText::_('Y'))); ?></span>
-    </span>
+	<dd class="modified">
+	<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date',$this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
+	</dd>
+<?php endif; ?>
+<?php if ($params->get('show_publish_date')) : ?>
+	<dd class="published">
+	<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', JHtml::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-	<span class="createdby">
-		<?php $author =  $this->item->author; ?>
-		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
-
-			<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
-				<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' ,
-				 JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
-
-			<?php else :?>
-				<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-			<?php endif; ?>
-	</span>
+	<dd class="createdby">
+	<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
+	<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
+	<?php
+		$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
+		$item = JSite::getMenu()->getItems('link', $needle, true);
+		$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
+	?>
+		<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author)); ?>
+	<?php else: ?>
+		<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+	<?php endif; ?>
+	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_hits')) : ?>
-		<span class="hits">
-		<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
-		</span>
+	<dd class="hits">
+	<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
+	</dd>
+	</dl>
+</aside>    
 <?php endif; ?>
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
- </aside>
-<?php endif; ?>
-
 <section class="article-intro">
 <?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
 	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
@@ -164,7 +158,7 @@ $canEdit	= $this->item->params->get('access-edit');
 		$link->setVar('return', base64_encode($returnURL));
 	endif;
 ?>
-<footer class="article-readmore">
+<section class="article-readmore">
 			<p class="readmore">
 				<a href="<?php echo $link; ?>">
 					<?php if (!$params->get('access-view')) :
@@ -181,7 +175,7 @@ $canEdit	= $this->item->params->get('access-edit');
 						echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 					endif; ?></a>
 		</p>
-</footer>        
+</section>        
 <?php endif; ?>
 
 <?php if ($this->item->state == 0) : ?>
