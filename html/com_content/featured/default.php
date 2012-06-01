@@ -26,9 +26,9 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 <section class="blog-featured <?php echo $this->pageclass_sfx;?>">
 <?php $leadingcount=0 ; ?>
 <?php if (!empty($this->lead_items)) : ?>
-<section class="leading-articles clearfix">
+<section class="leading-articles">
 	<?php foreach ($this->lead_items as &$item) : ?>
-		<article class="article <?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+		<article class="article <?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> clearfix">
 			<?php
 				$this->item = &$item;
 				echo $this->loadTemplate('item');
@@ -46,9 +46,9 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	$counter=0;
 ?>
 <?php if (!empty($this->intro_items)) : ?>
-<section class="intro-articles clearfix">
+<section class="intro-articles">
 	<?php foreach ($this->intro_items as $key => &$item) : ?>
-		<article class="article <?php echo $counter; ?>">
+		<article class="article <?php echo $counter; ?> clearfix">
 			<?php
 					$this->item = &$item;
 					echo $this->loadTemplate('item');
