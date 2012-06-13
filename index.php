@@ -166,7 +166,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
 	<?php endif; ?>
 </div>                                      
 <footer id="creditRow" class="row clearfix">      
-    <div id="creditRight" class="last">&copy; <?php echo date("Y"); ?> <a href="http://internet-inspired.com" title="Internet Inspired - Professional Joomla! Websmithing">Internet Inspired!</a> </div>				
+    <div id="creditRight"><a href="http://joomlafuture.com" title="OneWeb, a free, responsive, html5 template for Joomla! 2.5+">OneWeb</a>, a free Joomla! template from <a href="http://internet-inspired.com" title="Internet Inspired - Professional Joomla! Websmithing">Internet Inspired!</a> &copy; <?php echo date("Y"); ?></div>				
 </footer>
 <jdoc:include type="modules" name="debug"/>
 <?php if ($scripts > 0) : ?>
