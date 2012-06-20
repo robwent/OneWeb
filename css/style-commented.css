@@ -572,7 +572,8 @@ input#mod-search-searchword {
   display: inline-block;
   margin:0 .25em 1em;
 }
-#searchForm label[for="search-searchword"] {
+#searchForm label[for="search-searchword"],
+#contact-form button {
 	display:block;
 }
 #searchForm .radio,
