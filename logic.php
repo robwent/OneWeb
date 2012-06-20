@@ -76,7 +76,7 @@ $doc->addCustomTag('<link rel="apple-touch-icon-precomposed" sizes="72x72" href=
 // For non-Retina iPhone, iPod Touch, and Android 2.1+ devices:
 $doc->addCustomTag('<link rel="apple-touch-icon-precomposed" href="'.$template.'/images/small/apple-touch-icon-precomposed.png">');
 
-// Global styles
+// Global styles - minimise your css file when you go to production ;)
 $doc->addStyleSheet($template.'/css/style-commented.css');
 // Google fonts styles
 if ($googleWebFonts != "copy the css link from Google here") {
