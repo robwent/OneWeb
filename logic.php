@@ -95,5 +95,6 @@ $doc->setMetaData( 'cleartype', 'on');
 
 // If (polyfill) JS
 $doc->addCustomTag('<!--[if (lt IE 9) & (!IEMobile)]>');
+$doc->addCustomTag('<script src="'.$template.'/js/respond.min.js"></script>');
 $doc->addCustomTag('<script src="'.$template.'/js/selectivizr-min.js"></script>');
 $doc->addCustomTag('<![endif]-->');
