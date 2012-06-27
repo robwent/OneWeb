@@ -19,9 +19,6 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<!-- HTML5 Mobile Boilerplate - Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
-<!--[if IEMobile 7 ]> <html class="no-js iem7" lang="en"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 <jdoc:include type="head" />
 </head>
