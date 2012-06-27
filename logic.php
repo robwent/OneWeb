@@ -3,16 +3,18 @@
 Template:	OneWeb for Joomla 2.5						            
 Author: 	Seth Warburton - Internet Inspired! - @nternetinspired 				            
 Version: 	2.0 											             
-Created: 	June 2012                                                    
+Created: 	May 2012                                                    
 Copyright:	Seth Warburton - (C) 2012 - All rights reserved		
-Licenses:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html DBAD License http://philsturgeon.co.uk/code/dbad-license							             
-Sources:	http://html5boilerplate.com/ http://construct-framework.com/					
+License:	GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html							             
+Sources:	http://html5boilerplate.com/
+			http://construct-framework.com/					
 /* ===================================================================== */
 
 // Define shortcuts for template parameters
 $loadMoo 				= $this->params->get('loadMoo');
 $jQuery 				= $this->params->get('jQuery');
 $modernizr				= $this->params->get('modernizr');
+$badBrowser				= $this->params->get('badBrowser');
 $scripts 				= $this->params->get('scripts');
 $frontpage				= $this->params->get('frontpage');
 $setGeneratorTag		= $this->params->get('setGeneratorTag');
@@ -60,7 +62,7 @@ if ( !$loadMoo ) {
 #----------------------------- Inject extras into the head -----------------------------#
 // You can create your own custom Modernizr build http://modernizr.com/ and change the filename here to match
 if ($modernizr) {
-$doc->addCustomTag('<script src="'.$template.'/js/modernizr-2.5.3.custom.js"></script>');
+$doc->addCustomTag('<script src="'.$template.'/js/modernizr-2.5.3.min.js"></script>');
 }
 // Currently the latest minified version from Google. Change the version no. here if you want
 if ($jQuery) {
@@ -76,7 +78,7 @@ $doc->addCustomTag('<link rel="apple-touch-icon-precomposed" sizes="72x72" href=
 // For non-Retina iPhone, iPod Touch, and Android 2.1+ devices:
 $doc->addCustomTag('<link rel="apple-touch-icon-precomposed" href="'.$template.'/images/small/apple-touch-icon-precomposed.png">');
 
-// Global styles - minimise your css file when you go to production ;)
+// Global styles
 $doc->addStyleSheet($template.'/css/style-commented.css');
 // Google fonts styles
 if ($googleWebFonts != "copy the css link from Google here") {
@@ -93,8 +95,10 @@ $doc->setMetaData( 'apple-mobile-web-app-status-bar-style', 'black' );
 // For Win mobile
 $doc->setMetaData( 'cleartype', 'on');
 
-// If (polyfill) JS
+// CSS3 pseudo selector and media query support for IE8 and below
+if ($badBrowser) {
 $doc->addCustomTag('<!--[if (lt IE 9) & (!IEMobile)]>');
 $doc->addCustomTag('<script src="'.$template.'/js/respond.min.js"></script>');
 $doc->addCustomTag('<script src="'.$template.'/js/selectivizr-min.js"></script>');
 $doc->addCustomTag('<![endif]-->');
+}

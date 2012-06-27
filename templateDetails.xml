@@ -13,7 +13,6 @@
 	<p>OneWeb is a lightweight responsive,'mobile first' HTML5 boilerplate template created by Seth Warburton from <a href="http://internet-inspired.com">Internet Inspired!</a>.</p><p>It incorporates, and was inspired by, the hard work of others, notably<p>
 	<ul>
 	<li>Mobile first thinking and sexy typographic basics from <a href="http://www.stuffandnonsense.co.uk/projects/320andup/">320 and up</a> by Andy Clarke</li>
-	<li>Assorted awesomeness from <a href="http://html5boilerplate.com/">html5 Boilerplate</a></li>
 	<li>Assorted Joomla! tricks from Matt Thomas' <a href="http://construct-framework.com/">Construct Framework</a></li>
 	</ul>
 	]]></description>
@@ -68,6 +67,10 @@
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
+				<field name="badBrowser" type="radio" default="0" label="Support bad browsers?" description="Enabling this will load some additional JS to add media query support and CSS3 psuedo selectors to browsers that don't natively support them (IE8 and below)">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
 				<field name="scripts" type="radio" default="0" label="Load custom scripts?" description="Load the files scripts.js and plugins.js from the /js folder? If you want to add scripts place them in these files and then load them here, rather than using inidividual files">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
@@ -77,7 +80,7 @@
 					<option value="0">No</option>
 				</field>
 				<field type="spacer" default=" " />
-			<field name="setGeneratorTag" type="text" default="OneWeb, a free template from Seth Warburton, responsive Joomla! specialist extraordinaire! - @nternetinspired - http://joomlafuture.com." label="Generator Meta Tag" description="Customise the generator meta tag output by your template." size="80" />
+			<field name="setGeneratorTag" type="text" default="Internet Inspired! - Creative Joomla! templates - http://internet-inspired.com" label="Generator Meta Tag" description="Customise the generator meta tag output by your template." size="80" />
 			<field name="verification" type="text" default="Content_string_Google_gives_you" label="Google verification meta" description="Change Content_string_Google_gives_you to the meta content value Google gave in their code. You only need the content value, not the complete code" filter="raw" size="80" />
 			<field name="analytics" type="text" default="UA-XXXXX-X" label="Google Analytics ID" description="Change UA-XXXXX-X to be your site's ID" size="15" filter="raw" />						
 			<field name="googleWebFonts" type="text" default="copy the css link from Google here" label="Google Web Fonts collection" description="Paste in the link to the Google Web fonts collection that you want to be available to use in style.css. Visit http://code.google.com/webfonts, build a collection and then copy the link here" filter="raw" size="160" />
