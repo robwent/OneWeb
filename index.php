@@ -22,7 +22,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
 <head>
 <jdoc:include type="head" />
 </head>
-<body class="<?php echo $this->pageclass_sfx ?>clearfix">
+<body class="<?php echo $pageParams->get('pageclass_sfx'); ?> clearfix">
 <div id="buttonRow" class="mobile clearfix">
   <?php if($this->countModules('search')) : ?>
 		<a id="mobileSearch" href="#search" title="Jump to search">Search</a>

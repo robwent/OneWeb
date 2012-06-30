@@ -38,6 +38,7 @@ if ($activeMenu->getActive() == $activeMenu->getDefault()) {$siteHome = 'home';}
 
 // To enable use of site configuration
 $app 					= JFactory::getApplication();
+$pageParams             		= $app->getParams();
 
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
