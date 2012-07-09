@@ -805,10 +805,9 @@ dl.article-info dd {
 }
 /* article icons */
 .actions {
-	display:inline-block;
-	position:absolute;
-	top:0;
-	right:0;
+    display: inline-block;
+    float: right;
+    margin-top: -3em;
 }
 .actions ul {
 	margin:0;
