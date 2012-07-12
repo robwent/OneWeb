@@ -55,6 +55,7 @@ if ( !$loadMoo ) {
     unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-more.js']);
     unset($doc->_scripts[$this->baseurl.'/media/system/js/core.js']);
     unset($doc->_scripts[$this->baseurl.'/media/system/js/caption.js']);
+    unset($doc->_scripts[$this->baseurl.'/media/system/js/modal.js']);
     unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
     unset($doc->_scripts[$this->baseurl.'/plugins/system/mtupgrade/mootools.js']);
 }
