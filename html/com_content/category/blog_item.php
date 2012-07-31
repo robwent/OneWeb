@@ -68,7 +68,6 @@ JHtml::core();
 <aside class="article-meta">
 	<dl class="article-info">
 	<dt class="article-info-term"><?php  echo JText::_('COM_CONTENT_ARTICLE_INFO'); ?></dt>
-<?php endif; ?>
 <?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
 	<dd class="parent-category-name">
 	<?php	$title = $this->escape($this->item->parent_title);
@@ -125,6 +124,7 @@ JHtml::core();
 	<dd class="hits">
 	<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 	</dd>
+    <?php endif; ?>
 	</dl>
 </aside>    
 <?php endif; ?>
