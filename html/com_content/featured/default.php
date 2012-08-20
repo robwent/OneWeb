@@ -15,7 +15,7 @@ Source: 	J2.5.1. com_content/views/
 defined('_JEXEC') or die;
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 ?>
-
+<section class="blog-featured <?php echo $this->pageclass_sfx;?>">
 <?php if ( $this->params->get('show_page_heading')!=0) : ?>
 <header>
 	<h1>
@@ -23,7 +23,6 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	</h1>
 </header>    
 <?php endif; ?>
-<section class="blog-featured <?php echo $this->pageclass_sfx;?>">
 <?php $leadingcount=0 ; ?>
 <?php if (!empty($this->lead_items)) : ?>
 <section class="leading-articles">

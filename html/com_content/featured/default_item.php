@@ -23,14 +23,14 @@ $canEdit	= $this->item->params->get('access-edit');
 <?php endif; ?>
 <?php if ($params->get('show_title')) : ?>
 <header>
-	<h2>
+	<h1>
 		<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
 			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
 			<?php echo $this->escape($this->item->title); ?></a>
 		<?php else : ?>
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
-	</h2>
+	</h1>
 </header>    
 <?php endif; ?>
 
