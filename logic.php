@@ -95,7 +95,7 @@ $doc->setMetaData( 'viewport', 'width=device-width, initial-scale=1.0' );
 $doc->setMetaData( 'apple-mobile-web-app-capable', 'True' );
 $doc->setMetaData( 'apple-mobile-web-app-status-bar-style', 'black' );
 // For Win mobile
-$doc->setMetaData( 'cleartype', 'on', true);
+$doc->addCustomTag('<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->');
 
 // CSS3 pseudo selector and media query support for IE8 and below
 if ($badBrowser) {
