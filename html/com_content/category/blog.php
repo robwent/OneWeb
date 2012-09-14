@@ -17,6 +17,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 ?>
 <section class="blog <?php echo $this->pageclass_sfx;?>">
+<?php if (($this->params->get('show_page_heading', 1)) | ($this->params->get('show_category_title', 1) | $this->params->get('page_subheading'))) : ?>
 <hgroup>
 <?php if ($this->params->get('show_page_heading', 1)) : ?>
 <header>
@@ -36,6 +37,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 </header>    
 <?php endif; ?>
 </hgroup>
+<?php endif; ?>
 <?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 	<section class="category-desc">
 	<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
